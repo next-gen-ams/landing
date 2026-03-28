@@ -1,0 +1,53 @@
+{
+  "site": {
+    "title": "Safe Shield - SaaS & Tailwind Template for IT Industry",
+    "base_url": "https://safeshield-astro.vercel.app",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "126",
+    "logo_height": "51",
+    "logo_text": "safeshield"
+  },
+
+  "settings": {
+    "sticky_header": false,
+    "default_theme": "system",
+    "pagination": 2,
+    "summary_length": 100,
+    "blog_folder": "news"
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2024. All Rights Reserved"
+  },
+
+  "subscribe": {
+    "subscribe_form_action": "#",
+    "text": "Subscribe for updates and insight."
+  },
+
+  "demo": {
+    "enable": true,
+    "form_action": "#",
+    "charge": "No credit card required 14-days free trial"
+  },
+
+  "navigation_button": {
+    "enable": true,
+    "label": "Get This Template",
+    "link": "https://themefisher.com/products/safeshield-astro"
+  },
+
+  "metadata": {
+    "meta_author": "Themefisher",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Sass theme for Astro"
+  },
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  }
+}

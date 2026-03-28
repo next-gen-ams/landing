@@ -1,0 +1,119 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+import ImageMod from "../ImageMod.astro";
+
+type Props = {
+  team: CollectionEntry<"homepage">["data"]["team"];
+};
+
+const { team } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="col-10">
+        <h2
+          set:html={markdownify(team.title)}
+          class="text-center mb-10 text-balance lg:w-2/3 mx-auto"
+          data-aos="fade-up-sm"
+        />
+      </div>
+    </div>
+
+    <div class="row g-4 justify-center relative">
+      <div
+        class="hidden lg:block blur-[90px] w-1/2 h-1/4 absolute bottom-[-23%] left-1/2 -translate-x-1/2 -z-10 bg-body rounded-full"
+        data-aos="fade-up-sm"
+      >
+      </div>
+      <div
+        class="col-10 opacity-30 hidden lg:block absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-3/4 -z-20"
+      >
+        <svg
+          viewBox="0 0 1169 118"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          data-aos="zoom-in-sm"
+        >
+          <path
+            d="M1084.85 91.7985C1098.85 96.1757 1095.7 116.831 1081.03 116.831L83.0608 116.831C68.5114 116.831 65.228 96.4253 79.043 91.8613L350.362 2.22629C351.658 1.79805 353.014 1.57979 354.38 1.57979L794.351 1.57983C795.648 1.57983 796.936 1.77662 798.174 2.16346L1084.85 91.7985Z"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M576.039 117.388L576.039 1.41373"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M690.303 117.388L614.464 1.41372"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M462.332 117.388L538.171 1.41373"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M836.659 117.388L635.882 1.00025"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M299.527 117.388L500.303 1.00029"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M1014.86 117.388L689.728 1.20697"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M171.831 117.388L430.137 1.20702"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M1051.15 82.0264L105.226 82.0263"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+          <path
+            d="M938.17 45.842L213.774 45.842"
+            stroke="#462E8E"
+            stroke-width="1.11376"></path>
+        </svg>
+      </div>
+
+      {
+        team.members.map((m: any, index: number) => (
+          <div
+            class="col-12 md:col-6 lg:col-5"
+            data-aos="fade-up-sm"
+            data-aos-delay={50 + index * 100}
+          >
+            <div class="bg-gradient border border-border rounded-3xl p-5">
+              <div class="flex flex-col md:flex-row gap-6">
+                <ImageMod
+                  src={m.image}
+                  width={88}
+                  height={88}
+                  alt="image"
+                  class="rounded-xl object-cover"
+                  format="webp"
+                />
+                <div>
+                  <h6 set:html={markdownify(m.name)} class="mb-2" />
+                  <p
+                    set:html={markdownify(m.designation)}
+                    class="text-text/70"
+                  />
+                </div>
+              </div>
+              <p set:html={markdownify(m.details)} class="my-7" />
+              <p class="rounded bg-gradient-to-r from-[#1B1B2B] to-[#020213] px-5 py-2">
+                <span set:html={markdownify(m.percentage)} class="h5 mr-2" />
+                <span set:html={markdownify(m.motto)} class="text-gradient" />
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

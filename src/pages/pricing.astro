@@ -1,0 +1,78 @@
+---
+import Faq from "@/components/Faq.astro";
+import Feedback from "@/components/Feedback.astro";
+import Plans from "@/components/functional/pricing/Plans";
+import ClientLogoSlider from "@/components/home/ClientLogoSlider.astro";
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+
+const pricingIndex = await getListPage("pricing", "-index");
+const call_to_action = await getListPage("ctaSection", "call-to-action");
+
+if (pricingIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+const { title, meta_title, description, hero, plans, clients, contact } = pricingIndex.data;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-10">
+          <h1 set:html={markdownify(hero.title)} class="text-center text-balance mb-4" data-aos="fade-up-sm" />
+          <p set:html={markdownify(hero.content)} class="text-center text-balance" data-aos="fade-up-sm" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Plans plans={plans} client:load />
+
+  <section class="max-lg:pb-24">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-10">
+          <p
+            set:html={markdownify(clients.title)}
+            class="font-medium text-balance text-text-light text-center mb-7"
+            data-aos="fade-up-sm"
+          />
+
+          <ClientLogoSlider logos={clients.logos} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Faq className="pb-0" />
+
+  <Feedback />
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-11 lg:col-10">
+          <div
+            class="row max-lg:gy-3 justify-center lg:justify-between items-center bg-gradient border border-border rounded-3xl px-8 py-14"
+            data-aos="fade-up-sm"
+          >
+            <div class="col-7">
+              <h5 set:html={markdownify(contact.title_1)} class="max-md:text-center" data-aos="fade-up-sm" />
+              <h5 set:html={markdownify(contact.title_2)} class="max-md:text-center" data-aos="fade-up-sm" />
+            </div>
+            <div class="col-3 w-fit">
+              <a href={contact.button.link} class="btn btn-outline-primary" data-aos="fade-up-sm"
+                ><span>{contact.button.label} </span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action.data} />
+</Base>

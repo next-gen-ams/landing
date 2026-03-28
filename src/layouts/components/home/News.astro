@@ -1,0 +1,44 @@
+---
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry, CollectionKey } from "astro:content";
+import BlogSmCard from "./BlogSmCard.astro";
+
+type Props = {
+  news: CollectionEntry<"homepage">["data"]["news"];
+};
+
+const { news } = Astro.props;
+
+const blogs = await getSinglePage("news" as CollectionKey);
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="col-10 xl:col-6">
+        <h2
+          set:html={markdownify(news.title)}
+          class="mb-5 text-center text-balance"
+          data-aos="fade-up-sm"
+        />
+        <p
+          set:html={markdownify(news.content)}
+          class="mb-7 text-center"
+          data-aos="fade-up-sm"
+        />
+      </div>
+    </div>
+    <div class="row justify-center">
+      <div class="col-12 lg:col-10">
+        <div class="row justify-center g-3">
+          {
+            blogs
+              .slice(0, 3)
+              .map((blog, i) => <BlogSmCard blog={blog} index={i} />)
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+.btn {
+  @apply rounded-full px-8 py-4 font-normal !no-underline;
+}
+
+.btn,
+.btn-sm,
+.btn-md {
+  @apply inline-block transition no-underline!;
+  @apply transform hover:scale-105 active:scale-95;
+  @apply duration-300 ease-in-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-(--color-secondary)/50;
+  @apply shadow-md hover:shadow-lg;
+}
+
+.btn-sm {
+  @apply rounded-full px-4 py-1.5 text-sm;
+}
+
+.btn-md {
+  @apply rounded-full px-6 py-3;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-br from-secondary to-tertiary text-text-light;
+  @apply hover:brightness-110 active:brightness-90;
+}
+
+.btn-outline-primary {
+  @apply bg-gradient-to-br from-secondary/15 to-tertiary/20 border-border;
+  @apply hover:from-secondary/25 hover:to-tertiary/30;
+
+  span {
+    @apply text-gradient;
+  }
+}
+
+.btn-primary,
+.btn-outline-primary {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: all 0.6s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+}

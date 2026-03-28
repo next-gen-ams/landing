@@ -1,0 +1,25 @@
+/* navbar toggler */
+input#nav-toggle:checked + label #show-button {
+  @apply hidden;
+}
+input#nav-toggle:checked + label #hide-button {
+  @apply block;
+}
+input#nav-toggle:checked ~ #nav-menu {
+  @apply block lg:flex;
+}
+
+/* form style */
+form {
+  @apply p-8;
+}
+.form-input {
+  @apply w-full p-3 rounded-lg border-[#1e1458] bg-[#18142e] placeholder:text-text focus:border-text/10 focus:ring-transparent;
+}
+
+/* swiper pagination */
+.swiper-wrapper {
+  -webkit-transition-timing-function: linear !important;
+  -o-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+}

@@ -1,0 +1,47 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  offer: CollectionEntry<"homepage">["data"]["offer"];
+};
+
+const { offer } = Astro.props;
+---
+
+<section class="section pt-0">
+  <div class="container">
+    <div class="row justify-center mb-12">
+      <div class="col-10">
+        <h2
+          set:html={markdownify(offer.title)}
+          class="text-center lg:w-1/2 mx-auto"
+          data-aos="fade-up-sm"
+        />
+      </div>
+    </div>
+    <div class="row gy-4 justify-center">
+      <div class="col-12 lg:col-10">
+        <div class="row g-4">
+          {
+            offer.offers.map((o: any, index: number) => (
+              <div class="col-12 md:col-6 lg:col-4 max-md:p-0 min-h-full">
+                <div
+                  class="bg-gradient border border-border/50 rounded-3xl p-5 h-full w-full hover:scale-105 transition! duration-300!"
+                  data-aos="zoom-in-sm"
+                  data-aos-delay={index * 100}
+                >
+                  <div class="bg-primary p-3 rounded-full w-fit mb-16">
+                    <Icon name={o.icon} size={24} />
+                  </div>
+                  <p set:html={markdownify(o.details)} />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

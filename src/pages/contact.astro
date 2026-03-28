@@ -1,0 +1,131 @@
+---
+import Base from "@/layouts/Base.astro";
+
+import Faq from "@/components/Faq.astro";
+import config from "@/config/config.json";
+import { getListPage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import { Icon } from "astro-icon/components";
+
+const { contact_form_action } = config.params;
+const contactIndex = await getListPage("contact", "-index");
+const call_to_action = await getListPage("ctaSection", "call-to-action");
+const { title, meta_title, description, contact, support, sale, help, form } = contactIndex.data;
+
+if (contactIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center gy-4">
+        <div class="col-12 lg:col-5">
+          <div class="flex flex-col gap-5 justify-between h-full">
+            <div class="bg-gradient border border-border rounded-3xl p-7" data-aos="fade-up-sm">
+              <h5 set:html={markdownify(contact.title)} class="mb-5" />
+              <p set:html={markdownify(contact.content)} />
+            </div>
+            <div class="bg-gradient border border-border rounded-3xl p-7" data-aos="fade-up-sm" data-aos-delay="100">
+              <p>
+                <span set:html={markdownify(sale.title)} class="text-text-light mr-2" />
+                <span set:html={markdownify(sale.contact)} class="text-base" />
+              </p>
+              <p>
+                <span set:html={markdownify(support.title)} class="text-text-light mr-2" />
+                <span set:html={markdownify(support.contact)} class="text-base" />
+              </p>
+            </div>
+            <div class="bg-gradient border border-border rounded-3xl p-7" data-aos="fade-up-sm" data-aos-delay="200">
+              <h5 set:html={markdownify(help.title)} class="mb-5" />
+              <p set:html={markdownify(help.content)} />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 lg:col-5 min-h-full">
+          <div class="bg-gradient border border-border rounded-3xl h-full" data-aos="fade-up-sm">
+            <div class="px-8 mt-8">
+              <h5 set:html={markdownify(form.title)} class="mb-2" />
+              <p set:html={markdownify(form.content)} />
+            </div>
+            <form action={contact_form_action} method="POST" data-aos="fade-up-sm">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-3" data-aos="fade-up-sm">
+                    <div class="relative">
+                      <Icon name="user" class="absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        id="f-name"
+                        name="f-name"
+                        class="form-input pl-10!"
+                        placeholder="Your full name"
+                        type="text"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3" data-aos="fade-up-sm">
+                    <div class="relative">
+                      <Icon name="msg" class="absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        id="f-email"
+                        name="f-email"
+                        class="form-input pl-10!"
+                        placeholder="Enter your email"
+                        type="email"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3" data-aos="fade-up-sm">
+                    <div class="relative">
+                      <Icon name="user" class="absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        id="f-company"
+                        name="f-company"
+                        class="form-input pl-10!"
+                        placeholder="Company size"
+                        type="text"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3" data-aos="fade-up-sm">
+                    <div class="relative">
+                      <Icon name="text" class="absolute left-3 top-4" />
+                      <textarea
+                        id="f-message"
+                        name="f-message"
+                        class="form-input pl-10!"
+                        placeholder="Message"
+                        rows="4"
+                        required></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col" data-aos="fade-up-sm">
+                  <button type="submit" class="btn btn-outline-primary !px-6 !py-3">
+                    <span>Send</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Faq />
+
+  <CallToAction call_to_action={call_to_action!.data} />
+</Base>

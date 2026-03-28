@@ -1,0 +1,50 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import { GoChevronRight } from "react-icons/go";
+import { IoBagRemoveOutline, IoLocationOutline } from "react-icons/io5";
+
+const { job, index = 0 } = Astro.props;
+const { title, duration, location } = job.data;
+---
+
+<div
+  class="col-12 lg:col-8"
+  data-aos="fade-up-sm"
+  data-aos-delay={50 + index * 50}
+>
+  <div
+    class="group flex flex-col md:flex-row items-center justify-between w-full border-b border-border/50 py-7 transition-colors duration-300"
+  >
+    <p class="text-lg text-text-light max-md:mb-2">
+      {markdownify(title)}
+    </p>
+    <div
+      class="flex flex-col md:flex-row items-center md:gap-x-4 max-md:gap-y-2"
+    >
+      <p class="flex items-center">
+        <span>
+          <IoBagRemoveOutline className="mr-2" />
+        </span>
+        <span>{markdownify(duration)}</span>
+      </p>
+
+      <p class="flex items-center lg:mr-20">
+        <span>
+          <IoLocationOutline className="mr-2" />
+        </span>
+        <span>{markdownify(location)}</span>
+      </p>
+
+      <a
+        href={`/career/${job.id}`}
+        class="flex items-center justify-between transform transition-all duration-300 -translate-x-3 group-hover:translate-x-0"
+      >
+        <span
+          class="bg-primary rounded-full p-2 border-border transition-colors duration-300"
+        >
+          <GoChevronRight className="text-text-light" />
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+import Demand1 from "./svg/Demand1.astro";
+import Demand2 from "./svg/Demand2.astro";
+import Demand3 from "./svg/Demand3.astro";
+
+type Props = {
+  demand: CollectionEntry<"homepage">["data"]["demand"];
+};
+
+const { demand } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center gy-5">
+      <div class="col-10 xl:col-6">
+        <h2
+          set:html={markdownify(demand.title)}
+          class="mb-5 text-center text-balance"
+          data-aos="fade-up-sm"
+        />
+        <p
+          set:html={markdownify(demand.content)}
+          class="mb-7 text-center"
+          data-aos="fade-up-sm"
+        />
+        <div class="text-center" data-aos="fade-up-sm">
+          <a href={demand.button.link} class="btn btn-outline-primary">
+            <span>{demand.button.label}</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-12 lg:col-10">
+        <div class="flex flex-col md:flex-row gap-3">
+          <div
+            class="relative overflow-hidden w-full lg:w-1/2 bg-transparent border border-border p-7 rounded-3xl"
+            data-aos="fade-up-sm"
+          >
+            <h2 set:html={markdownify(demand.card[0].score)} class="mb-9" />
+            {
+              demand.card[0].title && (
+                <h6 set:html={markdownify(demand.card[0].title)} class="mb-3" />
+              )
+            }
+            <p set:html={markdownify(demand.card[0].content)} />
+
+            <Demand1 />
+          </div>
+          <div class="w-full lg:w-1/2 flex flex-col gap-3">
+            <div
+              class="relative overflow-hidden w-full bg-transparent border border-border p-7 rounded-3xl"
+              data-aos="fade-up-sm"
+            >
+              <h2
+                set:html={markdownify(demand.card[1].score)}
+                class="text-gradient"
+              />
+              {
+                demand.card[1].title && (
+                  <h6
+                    set:html={markdownify(demand.card[1].title)}
+                    class="mb-3"
+                  />
+                )
+              }
+              <div class="lg:w-3/5">
+                <p set:html={markdownify(demand.card[1].content)} />
+              </div>
+
+              <Demand2 />
+            </div>
+
+            <div
+              class="relative overflow-hidden w-full bg-transparent border border-border p-7 rounded-3xl"
+              data-aos="fade-up-sm"
+            >
+              <h2 set:html={markdownify(demand.card[2].score)} />
+              {
+                demand.card[2].title && (
+                  <h6
+                    set:html={markdownify(demand.card[2].title)}
+                    class="mb-3"
+                  />
+                )
+              }
+              <div class="lg:w-3/5">
+                <p set:html={markdownify(demand.card[2].content)} />
+              </div>
+
+              <Demand3 />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

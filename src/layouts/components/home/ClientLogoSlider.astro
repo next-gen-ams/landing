@@ -1,0 +1,69 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ImageMod from "../ImageMod.astro";
+
+type Props = {
+  logos: CollectionEntry<"pricing">["data"]["clients"]["logos"];
+};
+
+const { logos } = Astro.props;
+---
+
+<div class="swiper clientlogo-slider">
+  <div class="swiper-wrapper">
+    {
+      logos &&
+        logos.map((item, index: number) => (
+          <div class="swiper-slide">
+            <div data-aos="fade-left-sm" data-aos-delay={50 + index * 50}>
+              <ImageMod
+                width={0}
+                height={0}
+                src={item}
+                alt={item}
+                class="h-12 w-max"
+                format="webp"
+              />
+            </div>
+          </div>
+        ))
+    }
+  </div>
+</div>
+
+<script>
+  import { Swiper } from "swiper";
+  import "swiper/css";
+  import { Autoplay } from "swiper/modules";
+
+  // astro:page-load event is fired when the page is loaded
+  document.addEventListener("astro:page-load", () => {
+    new Swiper(".clientlogo-slider", {
+      modules: [Autoplay],
+      spaceBetween: 80,
+      loop: true,
+      centeredSlides: true,
+      speed: 3000,
+      allowTouchMove: false,
+
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        425: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        992: {
+          slidesPerView: 4,
+        },
+        1200: {
+          slidesPerView: 5,
+        },
+      },
+    });
+  });
+</script>

@@ -1,0 +1,52 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+import ImageMod from "../ImageMod.astro";
+import ArcIcons from "./ArcIcons.astro";
+
+type Props = {
+  compliance: CollectionEntry<"homepage">["data"]["compliance"];
+};
+
+const { compliance } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="col-12 lg:col-10">
+        <div class="row justify-center gy-5 overflow-hidden relative">
+          <div class="col-12">
+            <h2
+              set:html={markdownify(compliance.title)}
+              class="text-center lg:w-1/2 mx-auto"
+              data-aos="fade-up-sm"
+            />
+            <p
+              set:html={markdownify(compliance.content)}
+              class="text-center lg:w-2/3 mx-auto text-balance"
+              data-aos="fade-up-sm"
+            />
+          </div>
+
+          <div class="col-12 lg:col-6 mb-[-25%] sm:mb-[-30%] lg:mb-[-18%]">
+            <ArcIcons app={compliance.app} />
+          </div>
+
+          <div
+            class="w-full h-full absolute bottom-0 left-1/2 -z-40 transform -translate-x-1/2"
+          >
+            <ImageMod
+              src="/images/home/compliance/bg.png"
+              alt="bg"
+              class="object-cover w-full h-full rounded-3xl"
+              width={1200}
+              height={0}
+              format="webp"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+---
+title: "Customer Story"
+meta_title: ""
+description: "this is meta description"
+feedback:
+  title: "Our Clients Feedback"
+  content: "SafeShield offers a comprehensive solution for securing data"
+story:
+  title: "Our Costomers Story"
+  stories:
+    - customerName: "Michael Brown"
+      customerAvatar: "/images/story/1.png"
+      customerDesignation: "IT Director at HealthCare"
+      social:
+        icon: "FaXTwitter"
+        url: "https://x.com/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Jhon Brown"
+      customerAvatar: "/images/story/2.png"
+      customerDesignation: "Founder & CMO at Rogus"
+      social:
+        icon: "FaRedditAlien"
+        url: "https://www.reddit.com/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Michael Brown"
+      customerAvatar: "/images/story/3.png"
+      customerDesignation: "IT Director at HealthCare"
+      social:
+        icon: "FaChrome"
+        url: "https://google.com/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Aleena Hamilton"
+      customerAvatar: "/images/story/4.png"
+      customerDesignation: "IT Director at HealthCare"
+      social:
+        icon: "FaTwitch"
+        url: "https://www.twitch.tv/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Michael Brown"
+      customerAvatar: "/images/story/1.png"
+      customerDesignation: "IT Director at HealthCare"
+      social:
+        icon: "FaXTwitter"
+        url: "https://x.com/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Jhon Brown"
+      customerAvatar: "/images/story/2.png"
+      customerDesignation: "Founder & CMO at Rogus"
+      social:
+        icon: "FaRedditAlien"
+        url: "https://www.reddit.com/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Michael Brown"
+      customerAvatar: "/images/story/3.png"
+      customerDesignation: "IT Director at HealthCare"
+      social:
+        icon: "FaChrome"
+        url: "https://google.com/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Aleena Hamilton"
+      customerAvatar: "/images/story/4.png"
+      customerDesignation: "IT Director at HealthCare"
+      social:
+        icon: "FaTwitch"
+        url: "https://www.twitch.tv/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Michael Brown"
+      customerAvatar: "/images/story/3.png"
+      customerDesignation: "IT Director at HealthCare"
+      social:
+        icon: "FaChrome"
+        url: "https://google.com/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+    - customerName: "Aleena Hamilton"
+      customerAvatar: "/images/story/4.png"
+      customerDesignation: "IT Director at HealthCare"
+      social:
+        icon: "FaTwitch"
+        url: "https://www.twitch.tv/"
+      story: "The real-time threat detection and automated response features have significantly reduced our risk exposure. We now feel more confident than ever about our data security posture."
+---

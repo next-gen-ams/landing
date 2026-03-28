@@ -1,0 +1,54 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import type { CollectionEntry, CollectionKey } from "astro:content";
+import { getEntry } from "astro:content";
+
+const blogIndex = (await getEntry(
+  "news" as any,
+  "-index"
+)) as CollectionEntry<"news">;
+const { title, meta_title, description, hero } = (blogIndex as any).data;
+
+const blogs = await getSinglePage("news" as CollectionKey);
+
+const call_to_action = (await getEntry(
+  "ctaSection",
+  "call-to-action"
+)) as CollectionEntry<"ctaSection">;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <section class="section">
+    <div class="container">
+      <div class="mx-auto text-center">
+        <h1
+          class="pb-4"
+          data-aos="fade-up-sm"
+          set:html={markdownify(hero.title)}
+        />
+        <p
+          class="pb-8 text-balance"
+          data-aos="fade-up-sm"
+          set:html={markdownify(hero.description)}
+        />
+      </div>
+    </div>
+  </section>
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10">
+          <div class="row justify-center g-4">
+            {blogs.map((blog, i) => <BlogCard blog={blog} index={i} />)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action.data} />
+</Base>

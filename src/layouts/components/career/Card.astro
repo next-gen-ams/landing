@@ -1,0 +1,54 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/shortcodes/Button";
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  hero: CollectionEntry<"career">["data"]["hero"];
+};
+
+const { hero } = Astro.props;
+---
+
+<section class="section pb-0">
+  <div class="container">
+    {
+      hero?.title && (
+        <h2
+          set:html={markdownify(hero?.title)}
+          class="text-center text-balance mb-20"
+          data-aos="fade-up-sm"
+        />
+      )
+    }
+
+    <div class="row justify-center g-4">
+      {
+        hero?.cards.map((card, index: number) => (
+          <div
+            class="col-12 md:col-6 lg:col-5"
+            data-aos="fade-up-sm"
+            data-aos-delay={50 + index * 50}
+          >
+            <div class="bg-gradient border-border p-6 rounded-2xl">
+              <div class="bg-primary p-3 rounded-full w-fit mb-7">
+                <Icon name={card.icon} size={20} />
+              </div>
+
+              <h5 set:html={markdownify(card.title)} class="mb-2" />
+              <p set:html={markdownify(card.content)} class="mb-8" />
+              <div>
+                <Button
+                  label={card.button.label}
+                  link={card.button.link}
+                  style="outline"
+                />
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

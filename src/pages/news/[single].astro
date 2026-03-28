@@ -1,0 +1,67 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
+import dateFormat from "@/lib/utils/dateFormat";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import { render, type CollectionKey } from "astro:content";
+
+export async function getStaticPaths() {
+  const allposts = await getSinglePage("news");
+  const paths = allposts.map((post) => ({
+    params: {
+      single: (post as any).id,
+    },
+    props: { post },
+  }));
+  return paths;
+}
+
+const allposts = await getSinglePage("news" as CollectionKey);
+const call_to_action = await getListPage("ctaSection", "call-to-action");
+
+// declare any time for post
+const { post } = Astro.props as { post: any };
+const { title, meta_title, description, image, date } = post.data;
+const { Content } = await render(post);
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <section class="section pt-7">
+    <div class="container">
+      <p class="text-tertiary text-center mb-6" data-aos="fade-up-sm">
+        {dateFormat(date)}
+      </p>
+      <h2 set:html={markdownify(title)} class="text-center text-balance mb-20" data-aos="fade-up-sm" />
+      <div data-aos="zoom-in-sm">
+        <ImageMod
+          src={image}
+          alt={image}
+          width={1200}
+          height={600}
+          class="mx-auto aspect-video object-cover rounded-xl mb-11"
+          format="webp"
+        />
+      </div>
+
+      <article class="max-w-6xl mx-auto rounded-2xl md:rounded-[32px] p-5 md:px-[34px] md:py-[24px] bg-gradient">
+        <div class="content" data-aos="fade-up-sm">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <h5 class="mb-11 text-center" data-aos="fade-up-sm">Read more articles</h5>
+      <div class="row justify-center g-5">
+        {allposts.slice(0, 2).map((blog, i) => <BlogCard blog={blog} index={i} />)}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action.data} />
+</Base>

@@ -1,0 +1,41 @@
+---
+import dateFormat from "@/lib/utils/dateFormat";
+import { markdownify } from "@/lib/utils/textConverter";
+import ImageMod from "../ImageMod.astro";
+
+const { blog } = Astro.props;
+
+const { title, image, date, index } = blog.data;
+---
+
+<div
+  class="col-12 lg:col-4 sm:col-6"
+  data-aos="fade-up-sm"
+  data-aos-delay={50 + index * 50}
+>
+  <div
+    class="bg-gradient rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300"
+  >
+    <div class="p-4">
+      <ImageMod
+        src={image}
+        alt={title}
+        width={398}
+        height={227}
+        class="w-full object-cover rounded-2xl mb-2"
+        format="webp"
+      />
+      <div class="flex justify-between items-center mb-5">
+        <a href="/news" class="btn-sm btn-outline-primary"><span>Tech</span></a>
+        <p class="mb-3 text-sm">
+          {dateFormat(date, "MM-dd-yyyy")}
+        </p>
+      </div>
+      <a
+        href={`/news/${blog.id}`}
+        class="pb-6 h6"
+        set:html={markdownify(title)}
+      />
+    </div>
+  </div>
+</div>

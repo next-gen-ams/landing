@@ -1,0 +1,22 @@
+---
+import Base from "@/layouts/Base.astro";
+import Button from "@/shortcodes/Button";
+---
+
+<Base title="Page Not Found">
+  <section class="section">
+    <div class="container">
+      <div class="row lg:h-[900px]">
+        <div class="col-12 text-center">
+          <div data-aos="zoom-in-sm">
+            <p class="text-[150px] sm:text-[220px] font-bold text-text-light">404</p>
+          </div>
+          <p class="text-4xl text-text-light mb-8" data-aos="fade-up-sm">Oops! Page not found</p>
+          <div data-aos="fade-up-sm">
+            <Button label="Go back to home page " link="/" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

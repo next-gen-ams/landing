@@ -1,0 +1,54 @@
+---
+import config from "@/config/config.json";
+import dateFormat from "@/lib/utils/dateFormat";
+import { markdownify, plainify } from "@/lib/utils/textConverter";
+import { FaArrowRightLong } from "react-icons/fa6";
+import ImageMod from "./ImageMod.astro";
+
+const { summary_length }: { summary_length: number } = config.settings;
+
+const { blog } = Astro.props;
+
+const { title, image, date, index } = blog.data;
+---
+
+<div
+  class="col-12 sm:col-6"
+  data-aos="fade-up-sm"
+  data-aos-delay={50 + index * 50}
+>
+  <div
+    class="bg-gradient hover:scale-105 transition-all duration-300 rounded-3xl overflow-hidden"
+  >
+    <ImageMod
+      src={image}
+      alt={title}
+      width={398}
+      height={227}
+      class="w-full object-cover"
+      format="webp"
+    />
+
+    <div class="pt-3 px-4 pb-8">
+      <p class="hidden lg:block mb-3 text-sm">
+        {dateFormat(date, "MM-dd-yyyy")}
+      </p>
+      <a
+        href={`/news/${blog.id}`}
+        class="pb-6 h6"
+        set:html={markdownify(title)}
+      />
+
+      <p class="mb-6">
+        {plainify(blog?.body?.slice(0, Number(summary_length)))}
+      </p>
+
+      <a href={`/news/${blog.id}`} class="flex items-center justify-between">
+        <span class="text-gradient">Learn more</span>
+        <span class="bg-primary rounded-full p-2 border-border">
+          <FaArrowRightLong />
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

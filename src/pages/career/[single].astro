@@ -1,0 +1,58 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import { render } from "astro:content";
+import { IoBagRemoveOutline, IoLocationOutline } from "react-icons/io5";
+
+export async function getStaticPaths() {
+  const careers = await getSinglePage("career");
+  const paths = careers.map((career) => ({
+    params: {
+      single: career.id,
+    },
+    props: { career },
+  }));
+  return paths;
+}
+
+const { career } = Astro.props;
+const { title, meta_title, description, location, duration } = career.data;
+const { Content } = await render(career);
+
+const call_to_action = await getListPage("ctaSection", "call-to-action");
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <section class="section pt-7">
+    <div class="container">
+      <h2 set:html={markdownify(title)} class="text-center text-balance mb-5" data-aos="fade-up-sm" />
+
+      <div class="flex flex-col md:flex-row justify-center items-center md:gap-x-4 max-md:gap-y-2 mb-14">
+        <p class="flex items-center" data-aos="fade-up-sm">
+          <IoBagRemoveOutline className="mr-2" />
+
+          {duration && <span set:html={markdownify(duration)} />}
+        </p>
+
+        <p class="flex items-center lg:mr-20" data-aos="fade-up-sm" data-aos-delay="50">
+          <IoLocationOutline className="mr-2" />
+
+          {location && <span set:html={markdownify(location)} />}
+        </p>
+      </div>
+
+      <article
+        class="max-w-6xl mx-auto rounded-2xl md:rounded-[32px] p-5 md:px-[34px] md:py-[24px] bg-gradient"
+        data-aos="fade-up-sm"
+      >
+        <div class="content">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action.data} />
+</Base>

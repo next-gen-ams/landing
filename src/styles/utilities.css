@@ -1,0 +1,20 @@
+@utility bg-gradient {
+  @apply bg-gradient-to-br from-primary/80 to-primary/50;
+}
+@utility text-gradient {
+  @apply bg-gradient-to-r from-secondary to-tertiary bg-clip-text text-transparent;
+}
+
+@utility hover-border-effect {
+  @apply relative border-b border-[#0a0a0a1a] transition duration-300;
+  &::after {
+    @apply content-[''] absolute -bottom-px left-0 w-0 h-px bg-secondary transition-all duration-300;
+  }
+  &:hover::after {
+    @apply w-[40%];
+  }
+}
+
+@utility stretched-link {
+  @apply after:absolute after:inset-0;
+}

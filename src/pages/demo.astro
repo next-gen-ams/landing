@@ -1,0 +1,179 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import { Icon } from "astro-icon/components";
+import { FaCheck } from "react-icons/fa6";
+
+const { contact_form_action } = config.params;
+
+const demo = await getListPage("demo", "-index");
+const call_to_action = await getListPage("ctaSection", "call-to-action");
+
+if (demo.data.draft) {
+  return Astro.redirect("/404");
+}
+
+const { title, meta_title, description, hero, features, logos } = demo.data;
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <section class="section lg:pb-64">
+    <div class="container">
+      <div class="row justify-center gy-5">
+        <div class="col-12 lg:col-5">
+          <h2 set:html={markdownify(hero.title)} class="mb-3" data-aos="fade-up-sm" />
+          <p set:html={markdownify(hero.content)} class="mb-14" data-aos="fade-up-sm" />
+          <div class="flex flex-wrap gap-5 mb-14" data-aos="fade-up-sm">
+            {
+              features.map((f: string, index: number) => (
+                <div class="lg:w-1/2" data-aos="fade-up-sm" data-aos-delay={50 + index * 100}>
+                  <p class="text-text-light text-base flex items-center">
+                    <span>
+                      <FaCheck className="bg-tertiary/20 text-xl rounded-full p-1 mr-2" />
+                    </span>
+                    <span set:html={markdownify(f)} />
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="row g-3">
+            {
+              logos.map((logo: string, index: number) => (
+                <div class="col-4">
+                  <div data-aos="zoom-in-sm" data-aos-delay={50 + index * 100}>
+                    <ImageMod
+                      src={logo}
+                      alt="company logo"
+                      width={0}
+                      height={36}
+                      class="w-auto h-9 grayscale opacity-50"
+                      format="webp"
+                    />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="col-12 lg:col-5 min-h-full">
+          <div class="bg-gradient border border-border rounded-3xl h-full" data-aos="fade-up-sm">
+            <form action={contact_form_action} method="POST">
+              <div class="row">
+                <div class="col-12" data-aos="fade-up-sm">
+                  <div class="mb-3">
+                    <div class="relative">
+                      <Icon name="user" class="absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        id="f-name"
+                        name="f-name"
+                        class="form-input pl-10!"
+                        placeholder="Your full name"
+                        type="text"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12" data-aos="fade-up-sm">
+                  <div class="mb-3">
+                    <div class="relative">
+                      <Icon name="msg" class="absolute left-3 top-1/2 -translate-y-1/2" />
+
+                      <input
+                        id="f-email"
+                        name="f-email"
+                        class="form-input pl-10!"
+                        placeholder="Enter your email"
+                        type="email"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12" data-aos="fade-up-sm">
+                  <div class="mb-3">
+                    <div class="relative">
+                      <Icon name="msg" class="absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        id="f-company"
+                        name="f-company"
+                        class="form-input pl-10!"
+                        placeholder="Company size"
+                        type="text"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12" data-aos="fade-up-sm">
+                  <div class="mb-3">
+                    <div class="relative">
+                      <Icon name="bag" class="absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        id="f-case"
+                        name="f-case"
+                        class="form-input pl-10!"
+                        placeholder="Use Case"
+                        type="text"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12" data-aos="fade-up-sm">
+                  <div class="mb-3">
+                    <div class="relative">
+                      <Icon name="msg" class="absolute left-3 top-4" />
+                      <textarea
+                        id="f-message"
+                        name="f-message"
+                        class="form-input pl-10!"
+                        placeholder="Message"
+                        rows="5"
+                        required></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12" data-aos="fade-up-sm">
+                  <div class="mb-5 flex items-center">
+                    <input
+                      id="f-terms"
+                      name="f-terms"
+                      class="mr-2 rounded-lg border-[#1e1458] bg-[#18142e] placeholder:text-text focus:border-text/10 focus:ring-transparent checked:bg-border"
+                      type="checkbox"
+                      required
+                    />
+                    <label for="f-terms" class="text-text/70 text-base">
+                      I have read and agree to the
+                      <a
+                        href="/privacy"
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        class="text-text-light hover:text-accent"
+                      >
+                        Privacy Policy
+                      </a>
+                    </label>
+                  </div>
+                </div>
+                <div class="col" data-aos="fade-up-sm">
+                  <button type="submit" class="btn-md btn-outline-primary">
+                    <span>Send</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction call_to_action={call_to_action.data} />
+</Base>
