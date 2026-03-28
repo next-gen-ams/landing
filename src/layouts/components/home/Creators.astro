@@ -29,7 +29,9 @@ const { team } = Astro.props;
           >
             <div class="flex items-start gap-5 mb-5">
               <!-- Portrait placeholder -->
-              <div class="w-20 h-20 lg:w-24 lg:h-24 rounded-xl bg-border/30 shrink-0"></div>
+              <div class="w-20 h-20 lg:w-24 lg:h-24 rounded-xl bg-border/30 shrink-0 overflow-hidden">
+                <img src={member.image} alt={member.name} class="w-full h-full object-cover" />
+              </div>
               <div>
                 <h4
                   set:html={markdownify(member.name)}
