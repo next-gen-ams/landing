@@ -4,8 +4,8 @@
     "base_url": "https://kmt.global",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
+    "favicon": "/logo-small.svg",
+    "logo": "/logo.svg",
     "logo_width": "126",
     "logo_height": "51",
     "logo_text": "KMT"
