@@ -15,15 +15,46 @@ if (homepage.data.draft) {
   return Astro.redirect("/404");
 }
 
-const { hero, philosophy, pillars, team, services, connect, } = homepage.data;
+const { hero, philosophy, pillars, team, services, connect } = homepage.data;
 ---
 
 <Base>
   <Hero hero={hero} />
-  <Philosophy philosophy={philosophy} />
-  <Pillars pillars={pillars} />
-  <Creators team={team} />
+  <div class="relative *:z-1 *:relative">
+    <div
+      data-aos="fade-in"
+      data-aos-duration="5000"
+      class="absolute! inset-0 bg-[url(/refraction.webp)] rotate-180 bg-cover bg-center z-0 bg-no-repeat"
+    >
+    </div>
+    <div
+      class="absolute! inset-0 bg-linear-to-b from-background via-transparent to-background z-1"
+    >
+    </div>
+    <Philosophy philosophy={philosophy} />
+    <Pillars pillars={pillars} />
+  </div>
   <Services services={services} />
-  <Connect connect={connect} />
-  <Footer />
+  <div class="relative *:z-1 *:relative">
+    <div
+      data-aos="fade-in"
+      data-aos-duration="5000"
+      class="opacity-60 -hue-rotate-10 absolute! -scale-x-100 inset-0 bg-[url(/chip.webp)] bg-cover bg-center z-0 bg-no-repeat"
+    >
+    </div>
+    <div
+      class="absolute! lg:bg-transparent bg-background/70 transition-all inset-0 bg-linear-to-b from-background via-background/0 to-background z-1"
+    >
+    </div>
+    <Creators team={team} />
+  </div>
+
+  <div class="relative *:z-1 *:relative">
+    <div
+      class="absolute! inset-0 bg-linear-to-b from-background via-background/20 to-primary/10 z-1"
+    >
+    </div>
+    <Connect connect={connect} />
+    <Footer email={connect.email} />
+  </div>
 </Base>

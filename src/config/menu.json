@@ -5,12 +5,12 @@
       "url": "#about"
     },
     {
-      "name": "Team",
-      "url": "#team"
-    },
-    {
       "name": "Services",
       "url": "#services"
+    },
+    {
+      "name": "Team",
+      "url": "#team"
     }
   ],
   "footer": []

@@ -1,13 +1,10 @@
 .header {
-  @apply py-5 px-4 w-full max-w-[1460px] mx-auto;
-}
-
-.header-scrolled {
-  @apply bg-body/20 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none;
-}
-
-.header-scrolled > .navbar {
-  @apply transition-all duration-300 bg-transparent lg:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] lg:backdrop-blur-md lg:rounded-full;
+  @apply py-5 px-4 w-full mx-auto;
+  &::after {
+    @apply pointer-events-none;
+    @apply content-[''] block absolute left-0 right-0 top-0 h-30 z-[-1];
+    @apply bg-linear-to-b from-[#04184b] to-transparent;
+  }
 }
 
 /* navbar items */
@@ -23,15 +20,15 @@
 }
 
 .navbar-nav {
-  @apply text-left lg:text-left max-lg:p-6 max-lg:absolute max-lg:z-50 max-lg:top-16 max-lg:bg-body max-lg:backdrop-blur-md rounded-lg order-3 max-lg:border max-lg:border-white/10 hidden max-lg:w-[calc(100vw_-_64px)] max-lg:left-1/2 max-lg:transform max-lg:-translate-x-1/2 pb-6 lg:order-1 lg:flex lg:w-auto lg:pb-0 lg:gap-8;
+  @apply text-left lg:text-left max-lg:p-6 max-lg:absolute max-lg:z-50 max-lg:top-16 max-lg:bg-background/80 max-lg:glass max-lg:border border-light/10 rounded-lg order-3;
+  @apply hidden max-lg:w-[calc(100vw_-_64px)] max-lg:left-1/2 max-lg:transform max-lg:-translate-x-1/2 pb-6;
+  @apply lg:order-1 lg:flex lg:w-auto lg:pb-0 lg:gap-2;
 }
 
 .nav-link {
-  @apply font-medium text-text-light/70 hover:text-text-light block p-3 transition lg:px-2 lg:py-3 text-sm font-secondary;
-
-  &.active {
-    @apply text-secondary;
-  }
+  @apply text-text-light block p-3 transition lg:py-2 lg:w-40 text-center text-sm font-primary rounded-lg;
+  @apply transition-all duration-150 lg:glass;
+  @apply hover:bg-text-light hover:text-black;
 }
 
 .nav-dropdown {

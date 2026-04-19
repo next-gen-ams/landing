@@ -40,6 +40,7 @@ const homepageCollection = defineCollection({
           role: z.string(),
           bio: z.string(),
           image: z.string(),
+          background: z.string(),
         }),
       ),
     }),
@@ -56,6 +57,12 @@ const homepageCollection = defineCollection({
       line: z.string(),
       email: z.string(),
     }),
+    compliance: z.any().optional(),
+    demand: z.any().optional(),
+    demo: z.any().optional(),
+    feature: z.any().optional(),
+    news: z.any().optional(),
+    offer: z.any().optional(),
   }),
 });
 

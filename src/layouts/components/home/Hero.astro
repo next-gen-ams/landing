@@ -1,5 +1,4 @@
 ---
-import { markdownify } from "@/lib/utils/textConverter";
 import type { CollectionEntry } from "astro:content";
 
 type Props = {
@@ -7,38 +6,103 @@ type Props = {
 };
 
 const { hero } = Astro.props;
+const tagline = hero.tagline || "See Infinitely.";
+const [firstWord = "See", ...restWords] = tagline.split(" ");
+const accentWords = restWords.join(" ") || "Infinitely.";
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
-  <!-- Kaleidoscope background -->
-  <!-- <div class="kaleidoscope-bg" aria-hidden="true">
-    <div class="kaleidoscope-layer kaleidoscope-layer-1"></div>
-    <div class="kaleidoscope-layer kaleidoscope-layer-2"></div>
-    <div class="kaleidoscope-layer kaleidoscope-layer-3"></div>
-  </div> -->
+<section class="home-hero" id="hero" aria-labelledby="hero-heading">
+  <div class="home-hero__image" aria-hidden="true"></div>
+  <div class="home-hero__shade" aria-hidden="true"></div>
 
-  <div class="container relative z-10">
-    <div class="flex flex-col items-center justify-center text-center">
-      <h1
-        set:html={markdownify(hero.tagline)}
-        class="text-6xl md:text-6xl lg:text-6xl xl:text-8xl font-primary font-normal text-text-light mb-6 tracking-tight"
-        data-aos="fade-up-sm"
-      />
-      <p
-        set:html={markdownify(hero.subtitle)}
-        class="text-lg md:text-xl text-text font-secondary tracking-tight"
-        data-aos="fade-up-sm"
-        data-aos-delay="100"
-      />
-    </div>
+  <div class="home-hero__content">
+    <h1 id="hero-heading" class="home-hero__title" data-aos="fade-up-sm">
+      <span>{firstWord}</span>{" "}
+      <em>{accentWords}</em>
+    </h1>
+    <p class="home-hero__subtitle" data-aos="fade-up-sm" data-aos-delay="100">
+      {hero.subtitle}
+    </p>
   </div>
 
-  <!-- Scroll indicator -->
-  <div
-    class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-    data-aos-delay="300"
-  >
-    <div class="w-px h-12 bg-linear-to-b from-transparent to-text-light/30 mx-auto mb-2"></div>
-    <span class="text-xs text-text/50 font-secondary uppercase tracking-widest">Scroll</span>
-  </div>
+  <a class="home-hero__scroll" href="#about" aria-label="Scroll to about">
+    <span aria-hidden="true"></span>
+    <strong>Scroll</strong>
+  </a>
 </section>
+
+<style>
+  @reference "@/styles/main.css";
+
+  .home-hero {
+    @apply relative isolate grid h-screen place-items-center overflow-hidden bg-primary text-text-light;
+  }
+
+  .home-hero__image,
+  .home-hero__shade {
+    @apply absolute inset-0 -z-20;
+  }
+
+  .home-hero__image {
+    @apply bg-cover bg-center;
+    background-image: url("/images/web-1.jpg");
+  }
+
+  .home-hero__shade {
+    @apply -z-10 bg-black/10 bg-linear-to-b from-transparent from-80% to-[#0b2c6b];
+  }
+
+  .home-hero__content {
+    @apply mx-auto text-center pb-24;
+  }
+
+  .home-hero__title {
+    @apply m-0 text-[108px] font-secondary font-light tracking-tighter font-features-["liga"_on] text-text-light text-balance;
+  }
+
+  .home-hero__title span {
+    @apply tracking-[-6px];
+  }
+
+  .home-hero__title em {
+    @apply font-tertiary font-normal italic;
+  }
+
+  .home-hero__subtitle {
+    @apply mx-auto mt-2 max-w-200 font-primary text-base font-normal tracking-tight text-text-light/85 text-balance;
+  }
+
+  .home-hero__scroll {
+    @apply absolute bottom-[clamp(2rem,4.5vh,3.75rem)] mx-auto inline-grid justify-items-center gap-4 font-primary text-text-light/70 no-underline uppercase;
+  }
+
+  .home-hero__scroll span {
+    @apply block h-[clamp(2.75rem,6vh,4.25rem)] w-px bg-linear-to-b from-transparent to-text-light/50;
+  }
+
+  .home-hero__scroll strong {
+    @apply text-xs font-semibold tracking-[0.08em];
+  }
+
+  @media (max-width: 767px) {
+    .home-hero {
+      @apply min-h-[94svh];
+    }
+
+    .home-hero__image {
+      @apply bg-bottom;
+    }
+
+    .home-hero__content {
+      @apply w-[min(100%_-_1.75rem,38rem)] pt-22;
+    }
+
+    .home-hero__title {
+      @apply flex-wrap gap-x-2 gap-y-0.5 text-[clamp(3.75rem,18vw,6.25rem)];
+    }
+
+    .home-hero__subtitle {
+      @apply max-w-[33rem] text-base leading-[1.45];
+    }
+  }
+</style>

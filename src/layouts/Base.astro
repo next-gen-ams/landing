@@ -149,6 +149,10 @@ const { title, meta_title, description, image, noindex, canonical } =
       content={`${config.site.base_url}${image ? image : config.metadata.meta_image}`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
   </head>
   <body>
     {/* google tag manager noscript */}
@@ -159,7 +163,8 @@ const { title, meta_title, description, image, noindex, canonical } =
     }
     <TwSizeIndicator />
     <Header />
-    <main id="main-content"> <div class="relative bg-top">
+    <main id="main-content" class="bg-background">
+      <div class="relative bg-top">
         <div
           class="absolute w-full -hue-rotate-5 top-0 left-1/2 -z-40 transform -translate-x-1/2 translate-y-[-50%] sm:translate-y-[-52%] md:translate-y-[-55%] lg:translate-y-[-60%]"
         >

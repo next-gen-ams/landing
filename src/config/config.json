@@ -18,7 +18,7 @@
     "blog_folder": "news"
   },
   "params": {
-    "contact_form_action": "#",
+    "contact_form_action": "mailto:askus@kmt.global",
     "copyright": "© 2026 KMT Global. All Rights Reserved"
   },
   "subscribe": {
@@ -32,7 +32,7 @@
   },
   "navigation_button": {
     "enable": true,
-    "label": "Connect with Us",
+    "label": "Connect",
     "link": "#connect"
   },
   "metadata": {

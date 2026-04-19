@@ -1,26 +1,26 @@
 .btn {
-  @apply rounded-full px-8 py-4 font-normal !no-underline;
+  @apply rounded-lg px-8 py-4 font-normal !no-underline;
 }
 
 .btn,
 .btn-sm,
 .btn-md {
-  @apply inline-block transition no-underline!;
+  @apply inline-block transition no-underline! font-primary;
   @apply transform;
   @apply duration-300 ease-in-out;
   @apply focus:outline-none focus:ring-2 focus:ring-(--color-secondary)/50;
 }
 
 .btn-sm {
-  @apply rounded-full px-4 py-1.5 text-sm;
+  @apply rounded-lg px-4 py-2 text-sm;
 }
 
 .btn-md {
-  @apply rounded-full px-6 py-3;
+  @apply rounded-lg px-6 py-3;
 }
 
 .btn-primary {
-  @apply shadow-[inset_0px_6px_2px_-5px_rgba(255,255,255,0.1)] border border-1 border-white/10 bg-action text-text-light;
+  @apply shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.05),inset_0px_6px_2px_-5px_rgba(255,255,255,0.1)] bg-action text-text-light;
   @apply hover:brightness-110 active:brightness-90;
 }
 

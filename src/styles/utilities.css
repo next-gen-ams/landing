@@ -18,3 +18,7 @@
 @utility stretched-link {
   @apply after:absolute after:inset-0;
 }
+
+@utility glass {
+  @apply bg-text-light/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),inset_0px_6px_0px_-5px_rgba(255,255,255,0.15)] backdrop-blur-sm;
+}

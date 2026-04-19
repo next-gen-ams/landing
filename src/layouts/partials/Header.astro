@@ -18,8 +18,7 @@ const { navigation_button } = config;
     <!-- logo / wordmark -->
     <div class="order-0" data-aos="fade-up-sm">
       <a href="/" class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded-full bg-accent shrink-0"></div>
-        <span class="text-md font-primary font-normal text-text-light whitespace-nowrap">Kaleidoscope MT</span>
+        <img src="/logo-white.svg" alt="Kaleidoscope MT Logo" class="h-4" />
       </a>
     </div>
     <!-- navbar toggler -->
@@ -46,10 +45,7 @@ const { navigation_button } = config;
         main.map((menu, index) => (
           <div data-aos="fade-up-sm" data-aos-delay={50 + index * 50}>
             <li class="nav-item">
-              <a
-                href={menu.url}
-                class="nav-link block"
-              >
+              <a href={menu.url} class="nav-link block">
                 {menu.name}
               </a>
             </li>
@@ -59,11 +55,14 @@ const { navigation_button } = config;
       {
         navigation_button.enable && (
           <li
-            class="mt-4 inline-block lg:hidden"
+            class="mt-4 inline-block lg:hidden w-full"
             data-aos="fade-up-sm"
             data-aos-delay={50 + main.length * 50}
           >
-            <a href={navigation_button.link} class="btn-sm btn-primary">
+            <a
+              href={navigation_button.link}
+              class="btn-sm btn-primary w-full text-center"
+            >
               <span>{navigation_button.label}</span>
             </a>
           </li>
@@ -77,8 +76,11 @@ const { navigation_button } = config;
     >
       {
         navigation_button.enable && (
-          <div class="hidden lg:block">
-            <a href={navigation_button.link} class="btn-sm btn-primary">
+          <div class="hidden lg:block ">
+            <a
+              href={navigation_button.link}
+              class="btn-sm btn-primary min-w-40 text-center "
+            >
               <span>{navigation_button.label}</span>
             </a>
           </div>
@@ -90,21 +92,21 @@ const { navigation_button } = config;
 
 <script>
   function initHeader() {
-    const header = document.getElementById('site-header');
+    const header = document.getElementById("site-header");
     if (!header) return;
 
     const onScroll = () => {
       if (window.scrollY > 80) {
-        header.classList.add('header-scrolled');
+        header.classList.add("header-scrolled");
       } else {
-        header.classList.remove('header-scrolled');
+        header.classList.remove("header-scrolled");
       }
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
 
   initHeader();
-  document.addEventListener('astro:after-swap', initHeader);
+  document.addEventListener("astro:after-swap", initHeader);
 </script>

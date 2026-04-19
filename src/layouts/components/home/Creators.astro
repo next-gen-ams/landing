@@ -12,42 +12,50 @@ const { team } = Astro.props;
 <section class="section" id="team">
   <div class="container">
     <div class="flex justify-center mb-16">
-      <h2
+      <p
+        class="text-3xl tracking-tighter text-center font-secondary [&>strong]:font-tertiary [&>strong]:tracking-normal [&>strong]:italic [&>strong]:block [&>strong]:font-normal md:text-3xl lg:text-4xl text-text-light/90 mb-10 leading-snug text-balance"
         set:html={markdownify(team.headline)}
-        class="text-3xl md:text-4xl lg:text-5xl font-primary text-text-light text-center max-w-xl text-balance"
         data-aos="fade-up-sm"
       />
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mx-auto">
       {
         team.members.map((member: any, index: number) => (
           <div
-            class="group bg-gradient border border-border/50 rounded-2xl p-6 lg:p-8 transition-all duration-500"
+            class="group bg-background/60 glass rounded-lg p-2 transition-all duration-500 flex gap-2 lg:flex-col flex-col"
             data-aos="fade-up-sm"
             data-aos-delay={50 + index * 100}
           >
-            <div class="flex items-start gap-5 mb-5">
-              <!-- Portrait placeholder -->
-              <div class="w-20 h-20 lg:w-24 lg:h-24 rounded-xl bg-border/30 shrink-0 overflow-hidden">
-                <img src={member.image} alt={member.name} class="w-full h-full object-cover" />
-              </div>
-              <div>
-                <h4
-                  set:html={markdownify(member.name)}
-                  class="text-lg font-primary text-text-light mb-1"
+            <div class="flex flex-row gap-6 bg-background overflow-hidden rounded-lg justify-end relative">
+              <div
+                class="top-0 left-0 absolute h-40 right-[35%] mask-[url(/mask.svg)] mask-cover mask-top-right shrink-0 overflow-hidden"
+                style={{
+                  backgroundColor: member.background,
+                }}
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="aspect-square h-full object-cover ml-[2%]"
                 />
-                <p class="text-secondary font-secondary">
+              </div>
+              <div class="flex gap-2 justify-between text-right flex-col p-6 relative z-1">
+                <div class="text-base tracking-tight">
+                  <h4
+                    set:html={markdownify(member.name)}
+                    class="text-base font-primary text-text-light"
+                  />
+                  <p class="text-base mt-1">{member.role}</p>
+                </div>
+                <p class="text-primary-tint-2 text-base text-right mt-6">
                   {member.epithet}
-                </p>
-                <p class="text-text/60 font-secondary">
-                  {member.role}
                 </p>
               </div>
             </div>
             <p
               set:html={markdownify(member.bio)}
-              class="text-text leading-relaxed font-secondary"
+              class="text-light/80 text-base leading-relaxed font-primary flex-1 p-6"
             />
           </div>
         ))

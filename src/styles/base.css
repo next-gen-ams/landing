@@ -22,7 +22,7 @@ h1,
 
 h2,
 .h2 {
-  @apply text-text-light text-h2-sm md:text-h2 tracking-tight;
+  @apply text-text-light text-h2-sm md:text-h2 tracking-tight font-secondary;
 }
 
 h3,

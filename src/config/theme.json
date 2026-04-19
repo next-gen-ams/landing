@@ -2,8 +2,15 @@
   "colors": {
     "default": {
       "theme_color": {
-        "primary": "#0F0F1F",
-        "secondary": "#A787FF",
+        "primary": "#763cff",
+        "primary-tint-1": "#825cfd",
+        "primary-tint-2": "#8c73fa",
+        "background": "#15142a",
+        "background-tint-1": "#22213b",
+        "background-tint-2": "#444368",
+        "secondary": "#3a7bff",
+        "secondary-tint-1": "#5a9aff",
+        "secondary-tint-2": "#7ab5ff",
         "tertiary": "#7543FF",
         "accent": "#343AA8",
         "action": "#0046b8",
@@ -20,11 +27,11 @@
   },
   "fonts": {
     "font_family": {
-      "primary": "Sora:wght@300;400;500;600",
+      "secondary": "Figtree:wght@300;400;500;600",
       "primary_type": "Inter-Medium, Inter Placeholder, sans-serif",
-      "secondary": "TASA+Orbiter:wght@400;500;600",
+      "primary": "Inter:wght@300;400;500;600",
       "secondary_type": "Inter-Medium, Inter Placeholder, sans-serif",
-      "tertiary": "Roboto+Mono:wght@400;500;600",
+      "tertiary": "Instrument+Serif:ital@0;1",
       "tertiary_type": "Inter-Medium, Inter Placeholder, sans-serif"
     },
     "font_size": {

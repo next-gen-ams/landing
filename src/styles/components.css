@@ -32,7 +32,7 @@
     @apply mr-3;
   }
   p {
-    @apply font-secondary text-xl font-semibold text-text-dark;
+    @apply font-primary text-xl font-semibold text-text-dark;
   }
 }
 .notice-body {
