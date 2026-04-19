@@ -38,7 +38,7 @@ team:
     - name: "Kevin Zheng"
       epithet: "The Architect"
       role: "Lead Engineer"
-      bio: "The engineer who makes AI visible. Kevin is the co-creator of Posthoc, an internationally award-winning visualisation framework that turns complex search algorithms into experiences anyone can understand. His work spans robotics, logistics, and intelligent planning systems. At KMT, Kevin leads the engineering of AI-powered digital products — building interfaces where sophisticated technology feels effortless."
+      bio: The engineer that makes AI accessible to the masses. Kevin led the development of visualisation and analysis systems in the field of classical AI research. His work has earned best system demonstration at ICAPS, a top venue, in two consecutive years. Kevin specialises in translating cutting-edge research into real-world systems — designing and engineering robust, scalable, high-quality software that people actually use. At KMT, he leads the development of AI-powered digital products, shaping tools where sophisticated technology feels effortless.
       image: "/images/profiles/kevin.webp"
       background: "#007dfe"
     - name: "Bojie Shen, Ph.D."
