@@ -2,8 +2,8 @@
   @apply py-5 px-4 w-full mx-auto;
   &::after {
     @apply pointer-events-none;
-    @apply content-[''] block absolute left-0 right-0 top-0 h-30 z-[-1];
-    @apply bg-linear-to-b from-[#04184b] to-transparent;
+    @apply content-[''] block absolute left-0 right-0 top-0 h-40 z-[-1];
+    @apply bg-linear-to-b from-[#050414] to-transparent;
   }
 }
 

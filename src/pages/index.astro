@@ -21,39 +21,15 @@ const { hero, philosophy, pillars, team, services, connect } = homepage.data;
 <Base>
   <Hero hero={hero} />
   <div class="relative *:z-1 *:relative">
-    <div
-      data-aos="fade-in"
-      data-aos-duration="5000"
-      class="absolute! inset-0 bg-[url(/refraction.webp)] rotate-180 bg-cover bg-center z-0 bg-no-repeat"
-    >
-    </div>
-    <div
-      class="absolute! inset-0 bg-linear-to-b from-background via-transparent to-background z-1"
-    >
-    </div>
     <Philosophy philosophy={philosophy} />
     <Pillars pillars={pillars} />
   </div>
   <Services services={services} />
-  <div class="relative *:z-1 *:relative">
-    <div
-      data-aos="fade-in"
-      data-aos-duration="5000"
-      class="opacity-60 -hue-rotate-10 absolute! -scale-x-100 inset-0 bg-[url(/chip.webp)] bg-cover bg-center z-0 bg-no-repeat"
-    >
-    </div>
-    <div
-      class="absolute! lg:bg-transparent bg-background/70 transition-all inset-0 bg-linear-to-b from-background via-background/0 to-background z-1"
-    >
-    </div>
-    <Creators team={team} />
-  </div>
+  <Creators team={team} />
 
-  <div class="relative *:z-1 *:relative">
-    <div
-      class="absolute! inset-0 bg-linear-to-b from-background via-background/20 to-primary/10 z-1"
-    >
-    </div>
+  <div
+    class="bg-[linear-gradient(to_bottom,#00000077,#00000077),url('gradient-4.jpg')] lg:bg-[linear-gradient(to_bottom,#00000011,#00000011),url('gradient-4.jpg')] bg-cover bg-top"
+  >
     <Connect connect={connect} />
     <Footer email={connect.email} />
   </div>

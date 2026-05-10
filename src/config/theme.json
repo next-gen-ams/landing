@@ -2,7 +2,7 @@
   "colors": {
     "default": {
       "theme_color": {
-        "primary": "#763cff",
+        "primary": "#4912ff",
         "primary-tint-1": "#825cfd",
         "primary-tint-2": "#8c73fa",
         "background": "#15142a",
@@ -12,8 +12,8 @@
         "secondary-tint-1": "#5a9aff",
         "secondary-tint-2": "#7ab5ff",
         "tertiary": "#7543FF",
-        "accent": "#343AA8",
-        "action": "#0046b8",
+        "accent": "#4912ff",
+        "action": "#4912ff",
         "body": "#000000",
         "border": "#1e1458",
         "light": "#f6f6f9"

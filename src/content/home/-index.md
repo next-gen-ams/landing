@@ -8,20 +8,23 @@ hero:
   subtitle: "From cloud-native engineering to production-ready AI, we build the technical foundations your business needs to see clearly and move faster."
 
 philosophy:
-  opening: "<span>A kaleidoscope turns</span> **and the world shifts.**"
+  opening: "<span>Built-in intelligence.<br/> AI embedded in your business.</span>"
   body: "KMT was founded on a belief: the future of digital experience lives at the intersection of human insight and artificial intelligence. We bring together Australia's sharpest marketing minds and AI and software engineering talent — not as separate disciplines, but as one lens."
   closer: "Every product we build is human-centric, AI-empowered."
 
 pillars:
-  - keyword: "Insight-led"
+  - icon: data_exploration
+    keyword: "Insight-led"
     description: "Every solution starts with the market — behaviour, timing, unmet need. We do not engineer what's trending; we engineer what's next."
-  - keyword: "AI-native"
+  - icon: graph_7
+    keyword: "AI-native"
     description: "AI isn't layered on top. It's woven into the operational DNA — systems that think, learn, and evolve with the business."
-  - keyword: "Human-first"
+  - icon: accessibility_new
+    keyword: "Human-first"
     description: "We build around people — because the best systems don't ask users to adapt. They adapt to users."
 
 team:
-  headline: "Four perspectives. **One vision.**"
+  headline: "Four perspectives. One vision."
   members:
     - name: "George Pesutto"
       epithet: "The Wavemaker"
@@ -32,7 +35,9 @@ team:
     - name: "Coco Hu"
       epithet: "The Strategist"
       role: "Director"
-      bio: "A strategist with an instinct for what moves people. Across eight years navigating higher education, electric vehicles, and FMCG, Coco has built a reputation for seeing what others miss: the behavioural nuance behind a click, the human story inside a dataset. She doesn't just plan campaigns — she engineers journeys, translating consumer insight into go-to-market strategies that are sharp, measurable, and built to compound. At KMT and with qualifications with IT, Coco is the bridge between what the market feels and what the business needs."
+      bio: >-
+        A strategist with an instinct for what moves people. Across almost a decade navigating all categories including Automotive, FMCG, Retail, Education and government, Coco has built a globally recognised reputation for seeing what others miss: the behavioural nuance behind a click, the human story inside a dataset. Coco is accustomed to working deeply with the biggest brands in Australia and the world, connecting leading tech with real business outcomes for clients.  She doesn't just build marketing campaigns — she engineers journeys, translating consumer insight into go-to-market strategies that are sharp, measurable, and built to compound. At KMT and with qualifications in Brand Marketing and IT, Coco is the bridge between what the market feels and what the business needs.
+
       image: "/images/profiles/coco.webp"
       background: "#d38d8e"
     - name: "Kevin Zheng"
@@ -48,7 +53,7 @@ team:
       image: "/images/profiles/bojie.webp"
       background: "#46358d"
 services:
-  headline: "We design technology that **understands** people."
+  headline: "We design technology that understands people."
   items:
     - title: "Intelligent Marketing Systems"
       description: "Built inside the industry, for the industry. Quoting, tracking, supplier management, reporting — we've engineered systems that handle the operational weight, so your team doesn't have to. An intelligent assistant that surfaces insights from your campaign, strategy, and reporting data. Quietly. Automatically."

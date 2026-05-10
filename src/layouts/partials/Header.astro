@@ -18,7 +18,7 @@ const { navigation_button } = config;
     <!-- logo / wordmark -->
     <div class="order-0" data-aos="fade-up-sm">
       <a href="/" class="flex items-center gap-3">
-        <img src="/logo-white.svg" alt="Kaleidoscope MT Logo" class="h-4" />
+        <img src="/logo-small.svg" alt="Kaleidoscope MT Logo" class="h-5" />
       </a>
     </div>
     <!-- navbar toggler -->
@@ -28,16 +28,15 @@ const { navigation_button } = config;
       class="order-3 cursor-pointer flex items-center lg:hidden text-text-light lg:order-1 justify-end scale-90"
       data-aos="fade-up-sm"
     >
-      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
-      </svg>
+      <div id="show-button" class="glass rounded-lg p-2 size-10">
+        <span class="material-symbols-outlined"> drag_handle </span>
+      </div>
+      <div
+        id="hide-button"
+        class="glass rounded-lg p-2 size-10 text-background bg-text-light hidden"
+      >
+        <span class="material-symbols-outlined"> drag_handle </span>
+      </div>
     </label>
     <!-- /navbar toggler -->
     <ul id="nav-menu" class="navbar-nav max-lg:shadow-lg justify-center">

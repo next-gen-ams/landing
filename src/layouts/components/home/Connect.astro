@@ -12,23 +12,22 @@ const { connect } = Astro.props;
 
 <section class="section" id="connect">
   <div class="container">
-    <div class="flex justify-center">
-      <div class="max-w-xl flex-1 text-center">
-        <h2
-          set:html={markdownify(connect.line)}
-          class="text-3xl md:text-3xl lg:text-3xl font-secondary text-text-light mb-6 text-balance"
-          data-aos="fade-up-sm"
-        />
-        <a
-          href={`mailto:${connect.email}`}
-          class="text-lg text-secondary hover:text-tertiary transition font-primary mb-12 inline-block"
-          data-aos="fade-up-sm"
-          data-aos-delay="50"
-        >
-          {connect.email}
-        </a>
+    <div class="max-w-5xl mx-auto flex-1 w-full flex flex-col">
+      <h2
+        set:html={markdownify(connect.line)}
+        class="text-3xl md:text-3xl lg:text-3xl font-secondary text-text-light mb-6 text-balance"
+        data-aos="fade-up-sm"
+      />
+      <a
+        href={`mailto:${connect.email}`}
+        class="text-lg text-primary-tint-2 hover:text-tertiary transition font-primary mb-12 inline-block"
+        data-aos="fade-up-sm"
+        data-aos-delay="50"
+      >
+        {connect.email}
+      </a>
 
-        <!-- Simple contact form
+      <!-- Simple contact form
         <form
           action={"mailto:askus@kmt.global"}
           method="post"
@@ -68,7 +67,6 @@ const { connect } = Astro.props;
             </button>
           </div>
         </form> -->
-      </div>
     </div>
   </div>
 </section>

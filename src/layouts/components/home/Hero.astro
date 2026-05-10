@@ -23,11 +23,20 @@ const accentWords = restWords.join(" ") || "Infinitely.";
     <p class="home-hero__subtitle" data-aos="fade-up-sm" data-aos-delay="100">
       {hero.subtitle}
     </p>
+    <div class="flex gap-2 mt-8 justify-center" data-aos="fade-up-sm">
+      <a href="#connect" class="btn-sm w-40 glass bg-text-light text-background"
+        >Connect</a
+      >
+    </div>
   </div>
 
-  <a class="home-hero__scroll" href="#about" aria-label="Scroll to about">
-    <span aria-hidden="true"></span>
-    <strong>Scroll</strong>
+  <a
+    class="home-hero__scroll"
+    href="#about"
+    aria-label="Scroll to about"
+    data-aos="fade-up-sm"
+  >
+    <span class="material-symbols-outlined"> arrow_downward </span>
   </a>
 </section>
 
@@ -35,7 +44,7 @@ const accentWords = restWords.join(" ") || "Infinitely.";
   @reference "@/styles/main.css";
 
   .home-hero {
-    @apply relative isolate grid h-dvh place-items-center overflow-hidden bg-primary text-text-light;
+    @apply relative isolate h-dvh flex flex-col justify-center gap-2 overflow-hidden bg-primary text-text-light px-6;
   }
 
   .home-hero__image,
@@ -44,24 +53,20 @@ const accentWords = restWords.join(" ") || "Infinitely.";
   }
 
   .home-hero__image {
-    @apply bg-cover bg-center;
-    background-image: url("/images/web-1.jpg");
-  }
-
-  .home-hero__shade {
-    @apply -z-10 bg-black/10 bg-linear-to-b from-transparent from-80% to-[#0b2c6b];
+    @apply bg-center bg-cover;
+    background-image: url("/gradient-4.jpg");
   }
 
   .home-hero__content {
-    @apply mx-auto text-center pb-24;
+    @apply mx-auto text-center mt-12;
   }
 
   .home-hero__title {
-    @apply m-0 text-[108px] font-secondary font-light tracking-tighter font-features-["liga"_on] text-text-light text-balance;
+    @apply m-0 text-7xl lg:text-8xl font-secondary font-light tracking-tighter font-features-["liga"_on] text-text-light text-balance;
   }
 
   .home-hero__title span {
-    @apply tracking-[-6px];
+    @apply tracking-tighter;
   }
 
   .home-hero__title em {
@@ -73,36 +78,6 @@ const accentWords = restWords.join(" ") || "Infinitely.";
   }
 
   .home-hero__scroll {
-    @apply absolute bottom-[clamp(2rem,4.5vh,3.75rem)] mx-auto inline-grid justify-items-center gap-4 font-primary text-text-light/70 no-underline uppercase;
-  }
-
-  .home-hero__scroll span {
-    @apply block h-[clamp(2.75rem,6vh,4.25rem)] w-px bg-linear-to-b from-transparent to-text-light/50;
-  }
-
-  .home-hero__scroll strong {
-    @apply text-xs font-semibold tracking-[0.08em];
-  }
-
-  @media (max-width: 767px) {
-    .home-hero {
-      @apply min-h-[94svh];
-    }
-
-    .home-hero__image {
-      @apply bg-bottom;
-    }
-
-    .home-hero__content {
-      @apply w-[min(100%_-_1.75rem,38rem)] pt-22;
-    }
-
-    .home-hero__title {
-      @apply flex-wrap gap-x-2 gap-y-0.5 text-[clamp(3.75rem,18vw,6.25rem)];
-    }
-
-    .home-hero__subtitle {
-      @apply max-w-[33rem] text-base leading-[1.45];
-    }
+    @apply rounded-lg flex glass-sharp w-40 justify-center mx-auto p-2 px-3 items-center h-9 no-underline *:text-sm;
   }
 </style>

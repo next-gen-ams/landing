@@ -9,34 +9,33 @@ type Props = {
 const { pillars } = Astro.props;
 ---
 
-<section class="section pt-0">
+<section class="section pt-0 pb-12 bg-black">
   <div class="container">
     <div class="flex justify-center">
       <div class="w-full max-w-5xl">
-        <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-2 p-2 glass rounded-lg bg-accent/20"
-        >
+        <div class="grid grid-cols-1">
           {
-            pillars.map((pillar: any, index: number) => (
+            pillars.map((pillar, index: number) => (
               <div
                 class:list={[
-                  "p-6 border-l-4 bg-background",
-                  [
-                    "border-primary",
-                    "border-secondary",
-                    "border-primary-tint-1",
-                  ][index],
+                  "flex flex-col lg:flex-row *:flex-1 py-6 gap-4 border-b border-text-light/50 lg:items-end",
                 ]}
                 data-aos="fade-up-sm"
                 data-aos-delay={index * 100}
               >
-                <h3
-                  set:html={markdownify(pillar.keyword)}
-                  class="text-xl md:text-2xl font-secondary text-text-light mb-8"
-                />
+                <div class="flex gap-4 flex-col">
+                  <span
+                    class="material-symbols-outlined text-primary-tint-2 glass p-2 w-fit rounded-lg"
+                    set:html={pillar.icon}
+                  />
+                  <h3
+                    set:html={markdownify(pillar.keyword)}
+                    class="text-xl md:text-2xl font-secondary font-normal tracking-tight"
+                  />
+                </div>
                 <p
                   set:html={markdownify(pillar.description)}
-                  class="text-base text-text-light leading-relaxed font-primary opacity-80"
+                  class="text-base text-text-light leading-relaxed font-primary text-justify"
                 />
               </div>
             ))

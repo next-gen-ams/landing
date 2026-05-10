@@ -27,6 +27,7 @@ const homepageCollection = defineCollection({
     }),
     pillars: z.array(
       z.object({
+        icon: z.string(),
         keyword: z.string(),
         description: z.string(),
       }),

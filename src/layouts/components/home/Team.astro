@@ -12,7 +12,7 @@ const { team } = Astro.props;
 
 <section class="section">
   <div class="container">
-    <div class="row justify-center">
+    <div class="row justify-center max-w-5xl!">
       <div class="col-10">
         <h2
           set:html={markdownify(team.headline)}
@@ -22,7 +22,7 @@ const { team } = Astro.props;
       </div>
     </div>
 
-    <div class="row g-4 justify-center relative">
+    <div class="row g-4 justify-center relative max-w-5xl!">
       <div
         class="hidden lg:block blur-[90px] w-1/2 h-1/4 absolute bottom-[-23%] left-1/2 -translate-x-1/2 -z-10 bg-body rounded-full"
         data-aos="fade-up-sm"
