@@ -9,11 +9,11 @@ type Props = {
 const { team } = Astro.props;
 ---
 
-<section class="section bg-black" id="team">
+<section class="border-text-light/20 border-t section bg-black" id="team">
   <div class="container">
     <div class="flex max-w-5xl mx-auto mb-16">
       <p
-        class="text-3xl tracking-tighter text-center font-secondary [&>strong]:font-tertiary [&>strong]:tracking-normal [&>strong]:italic [&>strong]:block [&>strong]:font-normal md:text-3xl lg:text-4xl text-text-light/90 mb-10 leading-snug text-balance"
+        class="text-3xl tracking-tighter leading-tight font-secondary [&>strong]:font-tertiary [&>strong]:tracking-normal [&>strong]:italic [&>strong]:block [&>strong]:font-normal md:text-4xl lg:text-5xl text-text-light/90 mb-10 text-balance"
         set:html={markdownify(team.headline)}
         data-aos="fade-up-sm"
       />
@@ -37,9 +37,9 @@ const { team } = Astro.props;
                 <div class="text-base tracking-tighter">
                   <h4
                     set:html={markdownify(member.name)}
-                    class="text-2xl font-primary text-text-light tracking-tight"
+                    class="text-3xl md:text-4xl lg:text-5xl font-primary text-text-light tracking-tighter"
                   />
-                  <p class="text-base text-primary-tint-2 mt-1">
+                  <p class="text-base text-text-light mt-1">
                     {member.role} / {member.epithet}
                   </p>
                 </div>
@@ -47,7 +47,7 @@ const { team } = Astro.props;
             </div>
             <p
               set:html={markdownify(member.bio)}
-              class="text-light text-sm leading-relaxed font-primary flex-1 text-justify opacity-80"
+              class="text-text-light text-sm leading-relaxed font-primary flex-1 text-justify"
             />
           </div>
         ))

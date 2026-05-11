@@ -27,9 +27,7 @@ const { hero, philosophy, pillars, team, services, connect } = homepage.data;
   <Services services={services} />
   <Creators team={team} />
 
-  <div
-    class="bg-[linear-gradient(to_bottom,#00000077,#00000077),url('/gradient-4.jpg')] lg:bg-[linear-gradient(to_bottom,#00000011,#00000011),url('gradient-4.jpg')] bg-cover bg-top"
-  >
+  <div class="border-t border border-text-light/20">
     <Connect connect={connect} />
     <Footer email={connect.email} />
   </div>

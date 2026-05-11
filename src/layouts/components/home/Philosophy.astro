@@ -9,17 +9,17 @@ type Props = {
 const { philosophy } = Astro.props;
 ---
 
-<section class="section bg-black" id="about">
+<section class="section bg-black pb-0 lg:pb-12" id="about">
   <div class="container">
     <div class="flex max-w-5xl w-full mx-auto">
       <div class="max-w-2xl">
         <p
-          class="text-3xl tracking-tighter font-secondary [&>strong]:font-tertiary [&>strong]:tracking-normal [&>strong]:italic [&>strong]:block [&>strong]:font-normal md:text-3xl lg:text-4xl text-text-light/90 mb-10 leading-snug text-balance"
+          class="text-3xl tracking-tighter font-secondary [&>strong]:font-tertiary [&>strong]:tracking-normal [&>strong]:italic [&>strong]:block [&>strong]:font-normal md:text-4xl lg:text-5xl text-text-light/90 mb-10 leading-tight text-balance"
           set:html={markdownify(philosophy.opening)}
           data-aos="fade-up-sm"
         />
         <p
-          class="text-lg md:text-base text-text-light leading-relaxed mb-8 font-primary text-balance"
+          class="text-lg text-base text-text-light leading-relaxed mb-8 font-primary text-balance"
           set:html={markdownify(philosophy.body)}
           data-aos="fade-up-sm"
           data-aos-delay="50"

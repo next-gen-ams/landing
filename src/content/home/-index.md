@@ -24,7 +24,7 @@ pillars:
     description: "We build around people — because the best systems don't ask users to adapt. They adapt to users."
 
 team:
-  headline: "Four perspectives. One vision."
+  headline: "Four perspectives.<br/> One vision."
   members:
     - name: "George Pesutto"
       epithet: "The Wavemaker"
@@ -53,7 +53,7 @@ team:
       image: "/images/profiles/bojie.webp"
       background: "#46358d"
 services:
-  headline: "We design technology that understands people."
+  headline: "We design technology <br/>that understands people."
   items:
     - title: "Intelligent Marketing Systems"
       description: "Built inside the industry, for the industry. Quoting, tracking, supplier management, reporting — we've engineered systems that handle the operational weight, so your team doesn't have to. An intelligent assistant that surfaces insights from your campaign, strategy, and reporting data. Quietly. Automatically."

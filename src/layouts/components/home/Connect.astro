@@ -10,63 +10,77 @@ type Props = {
 const { connect } = Astro.props;
 ---
 
-<section class="section" id="connect">
+<section class="section bg-black" id="connect">
   <div class="container">
-    <div class="max-w-5xl mx-auto flex-1 w-full flex flex-col">
-      <h2
-        set:html={markdownify(connect.line)}
-        class="text-3xl md:text-3xl lg:text-3xl font-secondary text-text-light mb-6 text-balance"
-        data-aos="fade-up-sm"
-      />
-      <a
-        href={`mailto:${connect.email}`}
-        class="text-lg text-primary-tint-2 hover:text-tertiary transition font-primary mb-12 inline-block"
-        data-aos="fade-up-sm"
-        data-aos-delay="50"
-      >
-        {connect.email}
-      </a>
-
-      <!-- Simple contact form
-        <form
-          action={"mailto:askus@kmt.global"}
-          method="post"
-          class="mt-12 text-left space-y-4"
+    <div
+      class="max-w-5xl mx-auto flex-1 w-full flex flex-col lg:flex-row gap-6 *:flex-1"
+    >
+      <div>
+        <h2
+          set:html={markdownify(connect.line)}
+          class="text-3xl md:text-4xl lg:text-6xl tracking-tighter font-secondary text-text-light mb-6 text-balance"
           data-aos="fade-up-sm"
-          data-aos-delay="100"
+        />
+        <a
+          href={`mailto:${connect.email}`}
+          class="text-lg text-primary-tint-2 hover:text-tertiary transition font-primary mb-12 inline-block"
+          data-aos="fade-up-sm"
+          data-aos-delay="50"
         >
-          <div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              required
-              class="w-full px-4 py-3 bg-accent/10 border border-border/80 rounded-lg text-text-light placeholder:text-text/80 font-primary focus:border-secondary/50 focus:ring-0 focus:outline-none transition"
-            />
+          {connect.email}
+        </a>
+      </div>
+
+      <form
+        action={"mailto:askus@kmt.global"}
+        method="post"
+        class="w-full flex gap-12 flex-col text-left p-0!"
+        data-aos="fade-up-sm"
+        data-aos-delay="100"
+      >
+        <div>
+          <div class="text-text-light mb-4 text-base">
+            Name <span class="'opacity-80">*</span>
           </div>
-          <div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email"
-              required
-              class="w-full px-4 py-3 bg-accent/10 border border-border/80 rounded-lg text-text-light placeholder:text-text/80 font-primary focus:border-secondary/50 focus:ring-0 focus:outline-none transition"
-            />
+          <input
+            type="text"
+            class="w-full bg-black text-text-light outline-0 border-0 px-0 border-b border-text-light/20"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div>
+          <div class="text-text-light mb-4 text-base">
+            Email <span class="'opacity-80">*</span>
           </div>
-          <div>
-            <textarea
-              name="message"
-              placeholder="Tell us about your project"
-              rows="4"
-              class="w-full px-4 py-3 bg-accent/10 border border-border/80 rounded-lg text-text-light placeholder:text-text/80 font-primary focus:border-secondary/50 focus:ring-0 focus:outline-none transition resize-none"
-            ></textarea>
+          <input
+            type="email"
+            class="w-full bg-black text-text-light outline-0 border-0 px-0 border-b border-text-light/20"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div>
+          <div class="text-text-light mb-4 text-base">
+            Your project <span class="'opacity-80">*</span>
           </div>
-          <div class="pt-2">
-            <button type="submit" class="btn-md btn-primary w-full">
-              Send Message
-            </button>
-          </div>
-        </form> -->
+          <textarea
+            class="w-full bg-black text-text-light outline-0 border-0 px-0 border-b border-text-light/20"
+            name="message"
+            placeholder="Tell us about your project"
+            rows="4"></textarea>
+        </div>
+        <div class="pt-2">
+          <button
+            type="submit"
+            class="btn text-sm glass bg-text-light text-background w-full"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </section>

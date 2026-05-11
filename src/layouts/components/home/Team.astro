@@ -10,13 +10,13 @@ type Props = {
 const { team } = Astro.props;
 ---
 
-<section class="section">
+<section class="section border-t">
   <div class="container">
     <div class="row justify-center max-w-5xl!">
       <div class="col-10">
         <h2
           set:html={markdownify(team.headline)}
-          class="text-center mb-10 text-balance lg:w-2/3 mx-auto"
+          class="text-center mb-10 text-balance lg:w-2/3 text-7xl mx-auto"
           data-aos="fade-up-sm"
         />
       </div>
