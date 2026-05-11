@@ -14,6 +14,20 @@ const { navigation_button } = config;
 ---
 
 <header class="header z-50 fixed top-0 left-0 right-0 w-full" id="site-header">
+  <div
+    class="hidden lg:visible nav-blur flex-col-reverse lg:flex w-screen -m-6 -mb-18"
+  >
+    {
+      Array(6)
+        .fill(null)
+        .map((_, n) => (
+          <div
+            class="h-4"
+            style={{ backdropFilter: `blur(${0.5 + n * 0.5}px)` }}
+          />
+        ))
+    }
+  </div>
   <nav class="navbar">
     <!-- logo / wordmark -->
     <div class="order-0" data-aos="fade-up-sm">

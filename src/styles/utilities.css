@@ -23,5 +23,5 @@
   @apply bg-text-light/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),inset_0px_1px_1px_0px_rgba(255,255,255,0.15)] backdrop-blur-xs;
 }
 @utility glass-sharp {
-  @apply bg-text-light/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),inset_0px_1px_1px_0px_rgba(255,255,255,0.5),inset_0px_-12px_4px_0px_rgba(255,255,255,0.01)] backdrop-blur-xs;
+  @apply bg-text-light/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),inset_0px_1px_1px_0px_rgba(255,255,255,0.5),inset_0px_-4px_12px_0px_rgba(255,255,255,0.1)] backdrop-blur-xs;
 }
