@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Kaleidoscope } from "./Kaleidoscope";
 
 type Props = {
   hero: CollectionEntry<"homepage">["data"]["hero"];
@@ -13,7 +14,9 @@ const accentWords = restWords.join(" ") || "Infinitely.";
 
 <section class="home-hero" id="hero" aria-labelledby="hero-heading">
   <div class="home-hero__image" aria-hidden="true"></div>
-  <div class="home-hero__shade" aria-hidden="true"></div>
+  <div class="home-hero__shade" aria-hidden="true">
+    <Kaleidoscope client:load />
+  </div>
 
   <div class="home-hero__content">
     <h1 id="hero-heading" class="home-hero__title" data-aos="fade-up-sm">
@@ -53,8 +56,8 @@ const accentWords = restWords.join(" ") || "Infinitely.";
   }
 
   .home-hero__image {
-    @apply bg-center bg-cover;
-    background-image: url("/gradient-4.jpg");
+    @apply bg-black;
+    /* background-image: url("/gradient-4.jpg"); */
   }
 
   .home-hero__content {
