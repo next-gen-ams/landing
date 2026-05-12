@@ -20,9 +20,20 @@
 }
 
 .navbar-nav {
-  @apply text-left lg:text-left max-lg:p-6 max-lg:absolute max-lg:z-50 max-lg:top-16 max-lg:bg-background/80 max-lg:glass max-lg:border border-light/10 rounded-lg order-3;
-  @apply hidden max-lg:w-[calc(100vw_-_64px)] max-lg:left-1/2 max-lg:transform max-lg:-translate-x-1/2 pb-6;
+  @apply max-lg:*:w-full text-left max-lg:flex-col max-lg:flex max-lg:justify-end  max-lg:items-end lg:text-left max-lg:absolute max-lg:z-50 max-lg:top-16 rounded-lg order-3;
+  @apply hidden max-lg:w-full max-lg:px-2 max-lg:left-1/2 max-lg:transform max-lg:-translate-x-1/2 pb-6;
   @apply lg:order-1 lg:flex lg:w-auto lg:pb-0 lg:gap-2;
+}
+
+main {
+  @apply transition-all duration-500;
+}
+
+header:has(input#nav-toggle:checked) ~ main {
+  @apply max-lg:blur-xs max-lg:brightness-80;
+  &::after {
+    @apply lg:hidden content-[''] fixed inset-0;
+  }
 }
 
 .nav-link {

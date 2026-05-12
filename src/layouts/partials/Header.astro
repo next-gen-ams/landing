@@ -40,25 +40,29 @@ const { navigation_button } = config;
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
-      class="order-3 cursor-pointer flex items-center lg:hidden text-text-light lg:order-1 justify-end scale-90"
+      class="flex-0 order-3 cursor-pointer flex items-center lg:hidden text-text-light lg:order-1 justify-end scale-90"
       data-aos="fade-up-sm"
     >
-      <div id="show-button" class="glass rounded-lg p-2 size-10">
+      <RefractiveButton id="show-button" className="p-2 size-10">
         <span class="material-symbols-outlined"> drag_handle </span>
-      </div>
-      <div
+      </RefractiveButton>
+      <RefractiveButton
         id="hide-button"
-        class="glass rounded-lg p-2 size-10 text-background bg-text-light hidden"
+        className="p-2 size-10 text-background bg-text-light hidden"
       >
         <span class="material-symbols-outlined"> drag_handle </span>
-      </div>
+      </RefractiveButton>
     </label>
     <!-- /navbar toggler -->
-    <ul id="nav-menu" class="navbar-nav max-lg:shadow-lg justify-center">
+    <ul id="nav-menu" class="navbar-nav justify-center">
       {
         main.map((menu, index) => (
           <div data-aos="fade-up-sm" data-aos-delay={50 + index * 50}>
-            <RefractiveButton client:load href={menu.url}>
+            <RefractiveButton
+              client:load
+              href={menu.url}
+              className="w-full lg:w-40 mb-2 lg:mb-0"
+            >
               {menu.name}
             </RefractiveButton>
           </div>

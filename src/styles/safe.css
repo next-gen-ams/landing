@@ -6,7 +6,7 @@ input#nav-toggle:checked + label #hide-button {
   @apply block;
 }
 input#nav-toggle:checked ~ #nav-menu {
-  @apply block lg:flex;
+  @apply flex lg:flex;
 }
 
 /* form style */
