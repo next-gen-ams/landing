@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { Kaleidoscope } from "./Kaleidoscope";
+import { refractive } from "@hashintel/refractive";
+import { RefractiveButton } from "./RefractiveButton";
 
 type Props = {
   hero: CollectionEntry<"homepage">["data"]["hero"];
@@ -33,14 +35,13 @@ const accentWords = restWords.join(" ") || "Infinitely.";
     </div>
   </div>
 
-  <a
-    class="home-hero__scroll"
-    href="#about"
-    aria-label="Scroll to about"
-    data-aos="fade-up-sm"
-  >
-    <span class="material-symbols-outlined"> arrow_downward </span>
-  </a>
+  <div data-aos="fade-up-sm">
+    <RefractiveButton client:load href="#about" className="glass-sharp">
+      <span class="material-symbols-outlined text-sm!">
+        arrow_downward
+      </span></RefractiveButton
+    >
+  </div>
 </section>
 
 <style>

@@ -1,4 +1,5 @@
 ---
+import { RefractiveButton } from "@/components/home/RefractiveButton";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 
@@ -57,11 +58,9 @@ const { navigation_button } = config;
       {
         main.map((menu, index) => (
           <div data-aos="fade-up-sm" data-aos-delay={50 + index * 50}>
-            <li class="nav-item">
-              <a href={menu.url} class="nav-link block">
-                {menu.name}
-              </a>
-            </li>
+            <RefractiveButton client:load href={menu.url}>
+              {menu.name}
+            </RefractiveButton>
           </div>
         ))
       }

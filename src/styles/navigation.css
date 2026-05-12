@@ -3,7 +3,7 @@
   &::after {
     @apply pointer-events-none;
     @apply content-[''] block absolute left-0 right-0 top-0 h-24 z-[-1];
-    @apply bg-linear-to-b from-[#000000aa] to-transparent;
+    @apply bg-linear-to-b from-[#000000] to-transparent opacity-40;
   }
 }
 
